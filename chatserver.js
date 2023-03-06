@@ -54,7 +54,7 @@ app.get('/chat', function (req, res) {
     const curlArgs = [
       'https://api.openai.com/v1/completions',
       '-H', 'Content-Type: application/json',
-      '-H', 'Authorization: Bearer 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',
+      '-H', 'Authorization: Bearer OPENAI_API_KEY',
       '-d', requestDataJson
     ];
 
