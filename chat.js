@@ -5,13 +5,13 @@ f.addEventListener("submit", (e) => {
 
   const questionInput = document.getElementById('question-input');
   const question = questionInput.value;
-  const endpoint = `http://localhost:8080/chat?question=${encodeURIComponent(question)}`;
+  const endpoint = `https://chat-taro350.vercel.app/chat?question=${encodeURIComponent(question)}`;
   console.log(endpoint);
 
   const responseTextarea = document.getElementById('response-textarea');
   responseTextarea.value = 'Loading...'; // Display a loading message while waiting for the response
 
-  fetch("https://jsonplaceholder.typicode.com/todos/1", {
+  fetch(endpoint, {
         method : "GET",
         
     })
