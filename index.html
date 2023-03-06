@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chat</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/chatux/dist/chatux.min.js"></script>
+
+	<style>
+   		body { padding-top: 50px; }
+  	</style>
+
+</head>
+<body>
+	<div class="mx-4">
+		<form onclass="mx-lg-5">
+
+			<div class="form-group">
+			    <label for="Chat with me">Who Am I?</label>
+			    <input class="form-control form-control-lg" id="question-input" type="text" placeholder="Ask me!">
+			</div>
+
+		    <div class="col-auto">
+		      	<button class="btn btn-primary">
+		      		Submit
+		      	</button>
+	   		</div>
+
+	   		<div class="my-3">
+		    	<textarea class="form-control" id="response-textarea" rows="8"></textarea>
+		    </div>
+
+		</form>
+		
+
+		<div class="jumbotron my-5">
+		  <h2 class="display-4">Drive traffic to your website!</h2>
+		  <h3 class="lead">Optimize your website for search engine. Don't waste your effort by algorithm. I make your website likable by Google search engine.</h3>
+		  <hr class="my-4">
+		  <p>Boost your traffic to your website by local SEO, Technical SEO and content marketing</p>
+		  <a class="btn btn-primary btn-lg" href="#" role="button">Contact me</a>
+		</div>
+	</div>
+
+	<script src="/chat.js">
+	// const chatux = new ChatUx();
+
+	// chatux.init({
+	//   api: {
+	//     endpoint: 'http://localhost:8080/chat',//chat server
+	//     method: 'GET',//HTTP METHOD when requesting chat server
+	//     dataType: 'json',//json or jsonp is available
+	//     escapeUserInput: true,// true:Escaping HTML tags in user input text when submitting to the server. default is false.
+	//   }
+	// });
+
+	// chatux.start();
+	</script>
+</body>
+</html>
