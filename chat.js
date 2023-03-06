@@ -1,6 +1,8 @@
+import got from 'got';
+
 const f = document.querySelector("form");
 
-f.addEventListener("submit", (e) => {
+f.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const questionInput = document.getElementById('question-input');
@@ -11,22 +13,25 @@ f.addEventListener("submit", (e) => {
   const responseTextarea = document.getElementById('response-textarea');
   responseTextarea.value = 'Loading...'; // Display a loading message while waiting for the response
 
-  fetch(endpoint, {
-        method : "GET",
+  const jsonresponse = await got.post(endpoint);
+  console.log(jsonresponse)
+
+  // fetch(endpoint, {
+  //       method : "GET",
         
-    })
-    .then(response => {
-      console.log(response)
-      response.json()
-    })
-    .then(data => {
-      console.log(data);
-      responseTextarea.value = JSON.stringify(data, null, 2); // Display the response data in the textarea
-    })
-    .catch(error => {
-      console.error('Error caught:', error);
-      responseTextarea.value = 'An error occurred'; // Display an error message if there was an error
-    });
+  //   })
+  //   .then(response => {
+  //     console.log(response)
+  //     response.json()
+  //   })
+  //   .then(data => {
+  //     console.log(data);
+  //     responseTextarea.value = JSON.stringify(data, null, 2); // Display the response data in the textarea
+  //   })
+  //   .catch(error => {
+  //     console.error('Error caught:', error);
+  //     responseTextarea.value = 'An error occurred'; // Display an error message if there was an error
+  //   });
 });
 
 // function submitQuestion() {

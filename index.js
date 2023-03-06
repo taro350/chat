@@ -1,6 +1,6 @@
 import express from 'express';
 import got from 'got';
-
+import path from 'path'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -18,24 +18,19 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/chat.js', (req, res) => {
-  res.sendFile('index.js', { root: __dirname });
-});
 
 app.get('/', function (req, res) {
   res.sendFile('index.html', { root: __dirname });
   console.log(`Root directly done`);
+  console.log(__dirname)
 });
 
-app.get('/chat', function (req, res) {
+app.get('/chat', async function (req, res) {
   console.log(`Params for query : ${req.query.question}`);
 
   // only ?question= in URL
   if (req.query.question != undefined) {
 
-    
-
-    (async () => {
       const userInputText = req.query.question;
       const url = 'https://api.openai.com/v1/engines/davinci/completions';
       const requestData = {
@@ -51,17 +46,25 @@ app.get('/chat', function (req, res) {
       try {
         const jsonresponse = await got.post(url, { json: requestData, headers: headers }).json();
         output = `${prompt}${jsonresponse.choices[0].text}`;
-        console.log(output);
+        console.log(`Success! Here's the output :${output}`);
+        return output
       } catch (err) {
-        console.log(err);
+        console.log(`Agh, erroe caught : ${err}`);
       }
-    })();
+    
 
     
   }
 });
 
+app.get('/chat.js', (req, res) => {
+  console.log(__filename)
+  res.sendFile(__filename);
+});
 
+app.get('/logo.png', (req, res) => {
+  res.sendFile(path.join(__dirname, 'logo.png'));
+});
 
 
 
