@@ -15,9 +15,11 @@ myform.addEventListener("submit", (e) => {
   
   // add the form data to the URLSearchParams object
   searchParam.append('question', input.value);
+
+  const domain = window.location.hostname
   
   // send the form data to the server using fetch API
-  fetch('https://chat-taro350.vercel.app/chat?' + searchParam.toString(),{
+  fetch('https://' + domain + '/chat?' + searchParam.toString(),{
     method: "GET",
     headers: {
  	  'Accept': 'application/json',	
