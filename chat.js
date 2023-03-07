@@ -17,12 +17,20 @@ myform.addEventListener("submit", (e) => {
   searchParam.append('question', input.value);
   
   // send the form data to the server using fetch API
-  fetch('https://chat-taro350.vercel.app/chat?' + searchParam.toString())
+  fetch('https://chat-taro350.vercel.app/chat?' + searchParam.toString(),{
+    method: "GET",
+    headers: {
+ 	  'Accept': 'application/json',	
+      'Access-Control-Allow-Origin':'*',
+      'Content-Type': 'applications/json'
+    }
+  })
   .then(response => {
-    resultTextarea.value = response.choises[0].text()
+  	console.log(response)
+    // resultTextarea.value = response.choises[0].text()
   })
   .catch(error => {
-    console.log('Error: ', error);
+    console.log('Error caught during fetch: ', error);
   });
 });
 
