@@ -16,7 +16,7 @@ myform.addEventListener("submit", (e) => {
   searchParam.append('question', input.value);
   
   // send the form data to the server using fetch API
-  fetch('https://localhost:3000/chat?' + searchParam.toString())
+  fetch('https://chat-taro350.vercel.app/chat?' + searchParam.toString())
   .then(response => {
     resultTextarea.value = response.choises[0].text()
   })
