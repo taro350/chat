@@ -31,7 +31,7 @@ myform.addEventListener("submit", (e) => {
   fetch(url, options)
   .then(response => {
   	console.log(response)
-    resultTextarea.value = response.choises[0].text()
+    resultTextarea.value = response.text()
   })
   .catch(error => {
     console.log('Error caught during fetch: ', error);
