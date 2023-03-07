@@ -6,6 +6,7 @@ import https from 'https';
 import http from 'http';
 import morgan from 'morgan';
 
+import { v4 } from'uuid';
 import { Buffer } from 'node:buffer';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -41,8 +42,24 @@ app.get('/', function (req, res) {
   console.log(`----- Domain : ${__dirname}`)
 });
 
+
+// ******************************************
+// /api for Vercel
+app.get('/api', (req, res) => {
+  const path = `/api/item/${v4()}`;
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
+});
+app.get('/api/item/:slug', (req, res) => {
+  const { slug } = req.params;
+  res.end(`Item: ${slug}`);
+});
+// ******************************************
+
+
 // chat
-app.get('/chat', async function (req, res) {
+app.get('/api/chat', async function (req, res) {
   let queryParam = url.parse(req.url, true).query.question
 
   res.send({
@@ -170,3 +187,7 @@ app.get('/logo.png', (req, res) => {
 app.listen(port, () => {
   console.log('****************** Chat server started on port:' + port + '******************');
 });
+
+
+module.exports = app;
+

@@ -18,7 +18,7 @@ myform.addEventListener("submit", (e) => {
 
   const domain = window.location.hostname
 
-  const url = 'https://' + domain + '/chat?' + searchParam.toString()
+  const url = 'https://' + domain + '/api/chat?' + searchParam.toString()
   
   const options = {
 		    method: "GET",
