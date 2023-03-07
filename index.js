@@ -4,16 +4,16 @@ import url from 'url';
 import path from 'path'
 import https from 'https';
 import http from 'http';
+import morgan from 'morgan';
+
+import { Buffer } from 'node:buffer';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 var querystring = require('querystring');
-
-import { Buffer } from 'node:buffer';
-
-
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 
 const app = express();
@@ -23,6 +23,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.json());
+
+app.use(morgan('combined'));
 
 // enabling CORS
 app.use(function (req, res, next) {
@@ -35,9 +37,8 @@ app.use(function (req, res, next) {
 // home
 app.get('/', function (req, res) {
   res.sendFile('index.html', { root: __dirname });
-  console.log(`Root directly done`);
-  console.log(`Domain : ${__dirname}`)
-  console.log(path.join(__dirname, 'logo.png'))
+  console.log(`----- Root directly done`);
+  console.log(`----- Domain : ${__dirname}`)
 });
 
 // chat
@@ -156,14 +157,14 @@ app.get('/chat', async function (req, res) {
   }
 });
 
-// app.get('/chat.js', (req, res) => {
-//   res.sendFile(__filename);
-// });
+app.get('/chat.js', (req, res) => {
+  res.sendFile(__filename);
+});
 
-// app.get('/logo.png', (req, res) => {
+app.get('/logo.png', (req, res) => {
 
-//   res.sendFile(path.join(__dirname, 'logo.png'));
-// });
+  res.sendFile(path.join(__dirname, 'logo.png'));
+});
 
 
 

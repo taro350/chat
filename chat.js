@@ -1,6 +1,7 @@
 // get the form and input elements
 const myform = document.getElementById('myForm');
 const input = document.getElementById('question-input');
+const resultTextarea = document.getElementById('response-textarea');
 
 // handle the form submission
 myform.addEventListener("submit", (e) => {
@@ -8,7 +9,7 @@ myform.addEventListener("submit", (e) => {
   e.preventDefault();
 
   console.log("Prevented!")
-  
+
   // create a new URLSearchParams object
   const searchParam = new URLSearchParams();
   
