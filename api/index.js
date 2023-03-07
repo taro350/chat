@@ -37,7 +37,7 @@ app.use(function (req, res, next) {
 
 // home
 app.get('/', function (req, res) {
-  res.sendFile('index.html', { root: __dirname });
+  res.sendFile('/public/index.html', { root: __dirname });
   console.log(`----- Root directly done`);
   console.log(`----- Domain : ${__dirname}`)
 });
@@ -177,7 +177,7 @@ app.get('/chat.js', (req, res) => {
   res.sendFile(__filename);
 });
 
-app.get('/logo.png', (req, res) => {
+app.get('/public/logo.png', (req, res) => {
 
   res.sendFile(path.join(__dirname, 'logo.png'));
 });
