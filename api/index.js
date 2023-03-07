@@ -37,7 +37,7 @@ app.use(function (req, res, next) {
 
 // home
 app.get('/', function (req, res) {
-  res.sendFile('/public/index.html', { root: __dirname });
+  res.sendFile('/api/public/index.html', { root: __dirname });
   console.log(`----- Root directly done`);
   console.log(`----- Domain : ${__dirname}`)
 });
@@ -173,11 +173,11 @@ app.get('/api/chat', async function (req, res) {
 
 });
 
-app.get('/chat.js', (req, res) => {
+app.get('/api/chat.js', (req, res) => {
   res.sendFile(__filename);
 });
 
-app.get('/public/logo.png', (req, res) => {
+app.get('/api/public/logo.png', (req, res) => {
 
   res.sendFile(path.join(__dirname, 'logo.png'));
 });
