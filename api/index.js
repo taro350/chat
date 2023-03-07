@@ -174,7 +174,7 @@ app.get('/api/chat', async function (req, res) {
 });
 
 app.get('/api/chat.js', (req, res) => {
-  res.sendFile(__filename);
+  res.sendFile(path.join(__dirname, 'chat.js'));
 });
 
 app.get('/api/public/logo.png', (req, res) => {
