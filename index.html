@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="mx-4">
-		<form onclass="mx-lg-5">
+		<form onclass="mx-lg-5" id="myForm">
 
 			<div class="form-group">
 			    <label for="Chat with me">Who Am I?</label>
@@ -25,7 +25,7 @@
 			</div>
 
 		    <div class="col-auto">
-		      	<button class="btn btn-primary">
+		      	<button class="btn btn-primary" id="submitbtn" type="submit">
 		      		Submit
 		      	</button>
 	   		</div>
@@ -45,20 +45,7 @@
 		  <a class="btn btn-primary btn-lg" href="#" role="button">Contact me</a>
 		</div>
 	</div>
+	<script type="module" src="./chat.js"></script>
 
-	<script type="module" src="/chat.js">
-	// const chatux = new ChatUx();
-
-	// chatux.init({
-	//   api: {
-	//     endpoint: 'http://localhost:8080/chat',//chat server
-	//     method: 'GET',//HTTP METHOD when requesting chat server
-	//     dataType: 'json',//json or jsonp is available
-	//     escapeUserInput: true,// true:Escaping HTML tags in user input text when submitting to the server. default is false.
-	//   }
-	// });
-
-	// chatux.start();
-	</script>
 </body>
 </html>
