@@ -20,7 +20,7 @@ myform.addEventListener("submit", (e) => {
 
   const url = 'https://' + domain + '/chat?' + searchParam.toString()
   
-  const optioins = {
+  const options = {
 		    method: "GET",
 		    headers: {
 		      'Access-Control-Allow-Origin':'*',

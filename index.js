@@ -45,6 +45,10 @@ app.get('/', function (req, res) {
 app.get('/chat', async function (req, res) {
   let queryParam = url.parse(req.url, true).query.question
 
+  res.send({
+    'qestion' : queryParam
+  })
+  
   console.log(`----- Route : ${req.url}`);
   console.log(`----- Params for path : ${req.path}`);
   console.log(`----- Params for query : ${queryParam}`);
