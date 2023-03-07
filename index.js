@@ -60,13 +60,7 @@ app.get('/chat', async function (req, res) {
         "frequency_penalty": 0.5
       });
 
-      // const agent = new http.Agent({
-      //     keepAlive: true,
-      //     maxSockets: 1
-      // });
-
       console.log(jsonpayload)
-
 
       const options = {
         hostname: "api.openai.com",
@@ -155,6 +149,7 @@ app.get('/chat', async function (req, res) {
       //   console.log(`Agh, erroe caught : ${err}`);
       // }
   }
+
 });
 
 app.get('/chat.js', (req, res) => {

@@ -17,19 +17,21 @@ myform.addEventListener("submit", (e) => {
   searchParam.append('question', input.value);
 
   const domain = window.location.hostname
+
+  const url = 'https://' + domain + '/chat?' + searchParam.toString()
   
+  const optioins = {
+		    method: "GET",
+		    headers: {
+		      'Access-Control-Allow-Origin':'*',
+		    }
+		}
+
   // send the form data to the server using fetch API
-  fetch('https://' + domain + '/chat?' + searchParam.toString(),{
-    method: "GET",
-    headers: {
- 	  'Accept': 'application/json',	
-      'Access-Control-Allow-Origin':'*',
-      'Content-Type': 'applications/json'
-    }
-  })
+  fetch(url, options)
   .then(response => {
   	console.log(response)
-    // resultTextarea.value = response.choises[0].text()
+    resultTextarea.value = response.choises[0].text()
   })
   .catch(error => {
     console.log('Error caught during fetch: ', error);
