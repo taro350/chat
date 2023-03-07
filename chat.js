@@ -1,13 +1,13 @@
 // get the form and input elements
-const submitbtn = document.getElementById('submitbtn');
+const myform = document.getElementById('myForm');
 const input = document.getElementById('question-input');
 
 // handle the form submission
-submitbtn.addEventListener("submit", (e) => {
+myform.addEventListener("submit", (e) => {
   // prevent the default form submission behavior
   e.preventDefault();
 
-  alert("hey")
+  console.log("Prevented!")
   
   // create a new URLSearchParams object
   const searchParam = new URLSearchParams();
